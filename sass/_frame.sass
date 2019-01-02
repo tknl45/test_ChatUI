@@ -1,0 +1,94 @@
+.cu.chat
+    --avatar-size: 2.5em
+    font-family: "SF Pro TC","SF Pro Text","SF Pro Icons","PingFang TC","Helvetica Neue","Helvetica","Arial","Microsoft JhengHei",wf_SegoeUI,"Segoe UI",Segoe,"Segoe WP",Tahoma,Verdana,Ubuntu,"Bitstream Vera Sans","DejaVu Sans",Tahoma,微軟正黑體,"LiHei Pro","WenQuanYi Micro Hei","Droid Sans Fallback","AR PL UMing TW",Roboto,"Helvetica Neue","Hiragino Maru Gothic ProN",メイリオ,"ヒラギノ丸ゴ ProN W4",Meiryo,"Droid Sans",sans-serif
+    width: 100%
+    display: block
+    padding: .5em 0
+    font-size: 16px
+    background-attachment: fixed
+    background-size: cover
+    clear: both
+    position: relative
+    display: flex
+    flex-direction: column
+    line-height: 1
+    & p
+        line-height: 1.4em
+        margin: 0
+    *
+        clear: both
+    divider
+        padding: 0.281rem 0.781rem
+        border-radius: 0.781em
+        background-color: rgba(0, 0, 0, .3)
+        color: #fff
+        margin: 0.5em auto
+        display: block
+        width: auto
+        display: table
+    & .message
+        display: flex
+        flex-wrap: wrap
+        width: max-content
+        margin: 0 0 0 0.5em
+        &:first-child
+            margin-top: 0px
+        &.right
+            flex-direction: row-reverse
+            margin: 0 0.5em 0 auto
+            
+        &:not(.sticker)>.content
+            img,video,iframe
+                width: 450px
+                vertical-align: top
+            video,iframe
+                min-height: 250px
+        &.sticker>.content>img
+            width: auto
+            max-width: 300px
+            border-radius: 0.313em
+        &>.avatar
+            position: relative
+            margin: 0 0.313em 0 0
+            width: var(--avatar-size)
+            height: var(--avatar-size)
+            &[data-initial]::before
+                display: block
+                color: #fff;
+                content: attr(data-initial)
+                z-index: 1
+                text-align: center
+                background: #5755d9
+            &>img
+                width: var(--avatar-size)
+                height: var(--avatar-size)
+                object-fit: cover
+                transition: 0.1s
+        &>.content
+            width: auto
+            max-width: 450px
+            border-radius: 0.313em
+            flex-direction: column
+            flex: 1
+            position: relative
+            display: table
+            .meta
+                text-align: right
+                padding: 0 0.500em 0.188em 0.500em
+                .item
+                    display: inline-block
+                    color: #a0accf
+
+/*  RWD  */
+@media(max-width: 768px)
+    .cu.chat
+        .message
+            >.content
+                max-width: 80vw
+            img,video,iframe
+                max-width: 100%
+                width: 450px
+                video,iframe
+                    min-height: 200px
+            >.avatar
+                --avatar-size: 30px
