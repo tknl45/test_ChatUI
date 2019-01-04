@@ -158,7 +158,7 @@
 }
 
 .cu.chat[data-style="messenger"] .message > .avatar {
-  margin-top: 1em;
+  margin-top: 0em;
   --avatar-size: 1.750em;
 }
 
